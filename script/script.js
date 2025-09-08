@@ -2,11 +2,15 @@ let allPlants = []
 let cart = []
 
 async function loadPlants(){
-  const res = await fetch("https://openapi.programming-hero.com/api/plants")
-  const data = await res.json()
-  allPlants = data.plants
-  showPlants(allPlants)
-  showCategories(allPlants)
+  try {
+    const res = await fetch("https://api.allorigins.win/raw?url=https://openapi.programming-hero.com/api/plants")
+    const data = await res.json()
+    allPlants = data.plants
+    showPlants(allPlants)
+    showCategories(allPlants)
+  } catch(err){
+    document.getElementById("plantContainer").textContent = "Failed to load plants!"
+  }
 }
 
 function showPlants(plants){
@@ -16,18 +20,14 @@ function showPlants(plants){
     const card = document.createElement("div")
     card.className="bg-white rounded-xl shadow p-4 flex flex-col hover:scale-[1.02] transition"
     card.innerHTML=`
-      <img src="${p.image}" alt="${p.name}" 
-           class="w-full max-h-48 object-contain rounded-lg mb-3 bg-gray-50">
+      <img src="${p.image}" alt="${p.name}" class="w-full max-h-48 object-contain rounded-lg mb-3 bg-gray-50">
       <h3 class="font-semibold text-lg mb-1 text-green-700 cursor-pointer" onclick="openModal(${p.id})">${p.name}</h3>
       <p class="text-sm text-gray-600 mb-3">${p.description || "No description"}</p>
-      
       <div class="flex items-center justify-between mb-3">
         <span class="text-xs bg-green-100 text-green-600 px-3 py-1 rounded-full">${p.category}</span>
         <div class="font-bold text-green-700">৳${p.price}</div>
       </div>
-      
-      <button class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 self-center" 
-              onclick="addToCart(${p.id})">Add to Cart</button>
+      <button class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 self-center" onclick="addToCart(${p.id})">Add to Cart</button>
     `
     box.appendChild(card)
   })
@@ -101,4 +101,4 @@ function closeModal(){
   document.getElementById("plantModal").classList.add("hidden")
 }
 
-loadPlants()
+document.addEventListener("DOMContentLoaded", loadPlants)
