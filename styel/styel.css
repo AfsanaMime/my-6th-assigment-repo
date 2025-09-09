@@ -22,7 +22,7 @@
 width: 530px;
 height: 530px;
   display: block;
-  border-radius: 10px;
+  border-radius: 16px;
   object-fit: cover;
 }
 
@@ -70,6 +70,4 @@ text-align: center;
 @media (max-width: 768px) {
   .container.plants-content {
   }
-. Campaign{
-
-}
+  
