@@ -2,3 +2,74 @@
     
   font-family: "Inter", sans-serif;
 }
+.Campaign{
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background: rgba(207, 240, 220, 1);
+}
+
+.container.plants-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  justify-content: space-between;
+}
+
+.plants-image img {
+width: 530px;
+height: 530px;
+  display: block;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.plants-text {
+  flex: 1;
+  color: #252432; /* dark text */
+}
+
+.plants-text  {
+  color: var(--Neutral/Dark, rgba(31, 41, 55, 1));
+font-family: Inter;
+font-size: 16px;
+font-weight: 400;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: left;
+}
+
+.plants-text ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.plants-text ul li {
+  margin-bottom: 16px;
+  font-weight: 500;
+  gap:20
+}
+
+.Campaign h2{
+  color: var(--Neutral/Dark, rgba(31, 41, 55, 1));
+
+font-family: Inter;
+font-size: 32px;
+font-weight: 600;
+line-height: 40px;
+letter-spacing: 0%;
+text-align: center;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container.plants-content {
+  }
+. Campaign{
+
+}
